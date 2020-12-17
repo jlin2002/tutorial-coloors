@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    color: rgb(51,51,51);
+}
+
+path,
+i,
+svg {
+    pointer-events: none;
+}
+
+.colors {
+    min-height: 80vh;
+    display: flex;
+    color: rgb(212,212,212);
+}
+
+.color {
+    width: 20vw;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+}
+
+.sliders {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0%;
+    background: rgb(110,87,87);
+    padding: 1rem;
+    width: 80%;
+    pointer-events: none;
+    border-radius: 1rem 0 0 0;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.sliders.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.sliders button,
+.close-save,
+.close-library {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    border-radius: 0 0 0 1rem;
+    border: none;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.panels {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+}
+
+.panels button,
+.submit-save,
+.pick-palette-btn {
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    background: rgb(31, 31, 31);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.library-panel,
+.generate-panel,
+.save-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adjust,
+.lock {
+    font-size: 2rem;
+    border: none;
+    background: none;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    margin: 1rem 0rem;
+    width: 100%;
+    position: relative;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+/*
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: white;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 0.5rem;
+}
+*/
+
+.copy-container,
+.save-container,
+.library-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.copy-popup,
+.save-popup,
+.library-popup {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 2rem;
+    transition: transform 0.5s ease;
+    min-width: 30%;
+    min-height: 30vh;
+    transform: translateY(-2rem);
+    position: relative;
+}
+
+.library-popup {
+    overflow-y: scroll;
+    min-width: 40%;
+    padding: 1rem;
+    max-height: 50vh;
+    justify-content: flex-start;
+    border-top-right-radius: 0;
+    scrollbar-width: none;
+}
+
+.close-library {
+    position: fixed;
+}
+
+.library-popup::-webkit-scrollbar {
+    display: none;
+}
+
+.copy-popup h4,
+.save-popup h4,
+.library-popup h4 {
+    padding: 3rem;
+    font-size: 2rem;
+}
+
+.save-popup input {
+    padding: 0.5rem;
+}
+.close-save,
+.close-library {
+    padding: 1rem;
+}
+
+.copy-container.active,
+.save-container.active,
+.library-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
+    transform: translateY(0);
+}
+
+.custom-palette {
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 2rem;
+    height: 2rem;
+}
+
+.custom-palette h4 {
+    font-size: 1rem;
+    min-width: 50%;
+}
+
+.small-preview {
+    display: flex;
+    padding: 0.5rem;
+    height: 3rem;
+}
+
+.pick-palette-btn {
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.small-preview,
+.small-preview div {
+    flex: 1;
+}
